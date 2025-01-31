@@ -26,7 +26,7 @@ FFmpeg: https://www.ffmpeg.org/download.html
 ## Usage
 1. Run the script:
 ```bash
-python video_splitter.py
+python auto_clipper.py
 ```
 2. Select your video file using the "Browse" button
 3. Choose an output folder
