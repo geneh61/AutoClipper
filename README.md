@@ -1,4 +1,4 @@
-# Video Clip Splitter 
+# Auto Video Clipper
 
 Python script that splits videos into clips based on a volume threshold.
 
@@ -11,7 +11,7 @@ Python script that splits videos into clips based on a volume threshold.
 
 1. Clone repo:
 ```bash
-git clone https://github.com/geneh61/video_clip_splitter.git
+git clone https://github.com/geneh61/AutoClipper.git
 ```
 
 2. Install required packages:
