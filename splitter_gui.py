@@ -37,7 +37,6 @@ def process_video():
     log_text.set("Extracting audio...")
     window.update()
     
-    print("1")
     # extract audio
     temp_audio_path = "splitter_temp_audio.wav"
     subprocess.run(["ffmpeg", "-i", video_path, "-vn", "-ac", "1", "-ar", "16000", "-f", "wav", "splitter_temp_audio.wav"],
@@ -46,7 +45,6 @@ def process_video():
     os.remove(temp_audio_path)
 
     
-    print("2")
     # calc volume threshold
     if auto_threshold:
         loudness = audio.dBFS  
@@ -57,14 +55,12 @@ def process_video():
     
     window.update()
     
-    print("3")
     log_text.set("Detecting loud parts...")
     window.update()
     
     loud_segments = detect_nonsilent(audio, min_silence_len=min_segment_length, silence_thresh=volume_threshold, seek_step=10)
     clip_timestamps = [(start / 1000, end / 1000) for start, end in loud_segments if (end - start) <= max_segment_length]
     
-    print("4")
     if not clip_timestamps:
         log_text.set("⚠️ No loud segments detected. Try adjusting the threshold or min segment length.")
         return
@@ -72,7 +68,6 @@ def process_video():
     log_text.set(f"Found {len(clip_timestamps)} clips. Splitting video...")
     window.update()
     
-    print("5")
 
     for i, (start, end) in enumerate(clip_timestamps):
         output_filename = os.path.join(output_dir, f"clip_{i+1}.mp4")
